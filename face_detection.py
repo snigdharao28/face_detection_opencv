@@ -20,7 +20,7 @@ def detect(gray, frame):
         cv2.rectangle(frame, (x,y), (x+w, y+h), (255,0,0), 2)       #co-ordinates of the rectangles drawn around the face #color is red
         roi_gray = gray[y:y+h, x:x+w]        #getting region of interest in b&w image
         roi_color = frame[y:y+h, x:x+w]          #getting region of interest in colored image
-        eyes = eye_cascade.detectMultiScale(roi_gray, 1.1, 3)           #applying detectMultiScale method to detect one or several eyes in the image
+        eyes = eye_cascade.detectMultiScale(roi_gray, 1.1, 20)           #applying detectMultiScale method to detect one or several eyes in the image
         for (ex,ey,ew,eh) in eyes :         #for every eye detected
             cv2.rectangle(roi_color, (ex,ey), (ex+ew, ey+eh), (0,255,0), 2)         #co-ordinates of rectangles drawn around the eyes  #color is green
     return frame
